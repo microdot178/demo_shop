@@ -1,0 +1,17 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+{% block contents %}
+<!-- ниже товары -->
+
+{% for i in items %}
+<div class="items">
+    <img class='image' src={{ i.image }} />
+    <div class="item_info">
+        <div> {{ i.name }} </div><div> {{ i.price }} </div> <div> {{ i.quantity }} </div>
+    </div>
+    <div class="item_description"> <div> {{ i.description }} </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
