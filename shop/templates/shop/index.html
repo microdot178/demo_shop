@@ -44,6 +44,7 @@
         </div>
     <!-- конец блока. -->
 
+    <img class='cart' src="/static/css/images/cart.png" />
     <!-- Подвал сайта! -->
     <footer>
         <div class="footer_block_left">
@@ -98,7 +99,26 @@
 
         </div>
 
-    <script src={% static "js/modal.js" %}></script>
+        <!-- модальное окно корзина -->
+        <div id="modal_cart" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+            <span class="cart_close">&times;</span>
+          <!--  <h2>Шапка модального окна</h2> -->
+            </div>
+            <div class="modal-body">
+
+                <div class="cart_content"></div>
+
+
+                    </div>
+                    </div>
+
+            </div>
+
+        </div>
+    <script src={% static "js/cart.js" %}></script>
+    <script src={% static "js/index_modal.js" %}></script>
     <script src={% static "js/alert.js" %}></script>
     <script src={% static "js/theme_changer.js" %}></script>
 

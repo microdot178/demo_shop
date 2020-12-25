@@ -133,5 +133,5 @@ STATIC_ROOT = '/static/'
 # Additional locations of static files
 STATICFILES_DIRS = (
     # location of your application, should not be public web accessible
-    '/home/noname/Desktop_2/projects/demo-shop/static',
+    '/home/noname/github/demo_shop/static',
 )

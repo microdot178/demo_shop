@@ -5,7 +5,15 @@
 
 {% for i in items %}
 <div class="items">
-    <img class='image' src={{ i.image }} />
+    <div class="scale"><img class='image' src={{ i.image }} class="scale"/></div>
+    {% if not user.is_authenticated %}
+    <button class="add_to_cart_not_login" type="button" name="button"> add to cart </button>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <button class="add_to_cart" type="button" id={{ i.name }} + {{ i.price }}> add to cart </button>
+    {% endif %}
+
     <div class="item_info">
         <div> {{ i.name }} </div><div> {{ i.price }} </div> <div> {{ i.quantity }} </div>
     </div>
@@ -14,4 +22,5 @@
 </div>
 {% endfor %}
 
+<script src={% static "js/items.js" %}></script>
 {% endblock %}
