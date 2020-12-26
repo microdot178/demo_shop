@@ -43,8 +43,9 @@
     {% endblock %}
         </div>
     <!-- конец блока. -->
-
-    <img class='cart' src="/static/css/images/cart.png" />
+    {% if user.is_authenticated %}
+        <img class='cart' src="/static/css/images/cart.png" />
+    {% endif %}
     <!-- Подвал сайта! -->
     <footer>
         <div class="footer_block_left">
@@ -107,8 +108,24 @@
           <!--  <h2>Шапка модального окна</h2> -->
             </div>
             <div class="modal-body">
+                <div class="cart_content">
+                    <p>Вашь заказ:</p>
+                    <div id="cart_items"> Положите товар в корзину c:</div>
+                    <p>Сумма заказа:</p>
+                    <div id="final_price"> 0 </div>
+                    <div>
+                        <p>ФИО:<input type="text"></p>
+                        <p>Адрес:<input type="text"></p>
+                        <div class="cart_nav">
+                        <button class="reset" type="button" name="button"> сбросить </button>
+                        <button class="send_order" type="button" name="button"> отправить заказ </button></div>
+                    </div>
 
-                <div class="cart_content"></div>
+
+
+                </div>
+
+
 
 
                     </div>
@@ -121,6 +138,8 @@
     <script src={% static "js/index_modal.js" %}></script>
     <script src={% static "js/alert.js" %}></script>
     <script src={% static "js/theme_changer.js" %}></script>
+
+    <script src={% static "js/items.js" %}></script>
 
         </body>
 </html>

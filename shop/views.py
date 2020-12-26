@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 from .models import Footer_text
 from .models import Footer_contacts
 from .models import Item
-
 class Index(TemplateView):
     template_name = 'shop/index.html'
 
@@ -25,4 +24,5 @@ class Items(TemplateView):
         context['mail'] = contacts.mail
         context['phone'] = contacts.phone
         context['adress'] = contacts.adress
+
         return context
