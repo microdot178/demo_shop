@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!-- скелет страницы -->
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
     <div class="line"></div>
     <div class="sub_nav"><div class="sub_nav_left_but"><a> welcome </a> |
         {% if user.is_authenticated %}
-        <a> now you are logged in </a> {% endif %}
+        <a> you are logged in now </a> {% endif %}
         {% if not user.is_authenticated %}
         <a> log in to use the shopping cart </a> {% endif %} </div>
 
@@ -39,7 +40,8 @@
 
     <!-- Тут начинаются товары -->
     <div class="content">
-    {% block contents %}
+    {% block items %}
+    {% include "shop/items.html" %}
     {% endblock %}
         </div>
     <!-- конец блока. -->
@@ -68,10 +70,8 @@
         <div class="modal-content">
             <div class="modal-header">
             <span class="close">&times;</span>
-          <!--  <h2>Шапка модального окна</h2> -->
             </div>
             <div class="modal-body">
-
                 <div class="col">
                     <a href="#" class="fb btn">
                     <i class="fa fa-facebook fa-fw"></i> Login with Facebook
@@ -109,36 +109,29 @@
             </div>
             <div class="modal-body">
                 <div class="cart_content">
-                    <p>Вашь заказ:</p>
-                    <div id="cart_items"> Положите товар в корзину c:</div>
-                    <p>Сумма заказа:</p>
-                    <div id="final_price"> 0 </div>
-                    <div>
-                        <p>ФИО:<input type="text"></p>
-                        <p>Адрес:<input type="text"></p>
-                        <div class="cart_nav">
-                        <button class="reset" type="button" name="button"> сбросить </button>
-                        <button class="send_order" type="button" name="button"> отправить заказ </button></div>
-                    </div>
-
-
-
+                    <p class="form_cart_fields">your order:</p>
+                    <form method="post" class="post-form" id="my_form">{% csrf_token %}
+                    <div id="cart_items" class="item_list"> nothing</div>
+                    <p class="form_cart_fields">final price:</p>
+                    <div id="final_price" class="final_price_field"> 0 </div>
+                    <div class="invisible">
+                    {{ form.items }}
+                    {{ form.final_price }} </div>
+                    <div class="cart_nav">
+                    <p class="form_cart_fields">full name:{{ form.name|add_class:"forms_css" }}</p>
+                    <p class="form_cart_fields">adress:{{ form.adress|add_class:"forms_css" }}</p>
+                    <p><button type="submit" class="send_order">sent</button></p>
+                    <p><button type="button" class="reset">reset</button></p></div>
+                    </form>
                 </div>
-
-
-
-
                     </div>
-                    </div>
+                        </div>
+                            </div>
+                                </div>
 
-            </div>
-
-        </div>
     <script src={% static "js/cart.js" %}></script>
     <script src={% static "js/index_modal.js" %}></script>
-    <script src={% static "js/alert.js" %}></script>
     <script src={% static "js/theme_changer.js" %}></script>
-
     <script src={% static "js/items.js" %}></script>
 
         </body>

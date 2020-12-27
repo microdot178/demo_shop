@@ -297,6 +297,35 @@ input:checked + .slider:before {
     transform: scale(1.2); /* Увеличиваем масштаб */
 }
 
+.invisible {
+    display: none;
+}
+
+.form_cart_fields {
+    color: black;
+    font-style: oblique;
+}
+
+.final_price_field {
+    border:solid 1px #000000;
+    background-color: white;
+    height: 25px;
+    border-radius: 3px;
+}
+
+.item_list {
+    border:solid 1px #000000;
+    background-color: white;
+    height: 25px;
+    border-radius: 3px;
+}
+
+.forms_css {
+    border:solid 1px #000000;
+    background-color: white;
+    height: 25px;
+    radius: 0;
+}
 
 
 

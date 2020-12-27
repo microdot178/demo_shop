@@ -22,3 +22,11 @@ class Item(models.Model):
     image = models.CharField(max_length=100)
     def __str__(self):
         return self.name
+
+class Order(models.Model):
+    items = models.CharField(max_length=500)
+    final_price = models.CharField(max_length=500)
+    name = models.CharField(max_length=500)
+    adress = models.CharField(max_length=500)
+    def __str__(self):
+        return self.name
